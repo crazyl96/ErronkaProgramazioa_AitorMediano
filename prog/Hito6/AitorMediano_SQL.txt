@@ -1,0 +1,30 @@
+Create table Pictures(
+	Pictureld int Primary Key,
+    Title varchar(30),
+    Fecha date,
+    Fitxategia varchar(30),
+    Visits int,
+    Photographe_id int
+    
+);
+
+Create table Photographers(
+	PhotographerId int Primary Key,
+    Izena varchar(20),
+    Awarded boolean
+);
+
+INSERT INTO Pictures (Pictureld, Title, Fecha, Fitxategia, Visits, Photographe_id)
+VALUES
+(1, 'ansealdams', '2022-08-01', './images/ansealdams1.jpg', 600, 1),
+(2, 'ansealdams2', '2022-06-15', './images/ansealdams2.jpg', 800, 1),
+(3, 'rothko1', '2022-09-10', './images/rothko1.jpg', 400, 2),
+(4, 'vangogh1', '2022-07-20', './images/vangogh1.jpg', 300, 2),
+(5, 'vangogh2', '2022-08-15', './images/vangogh2.jpg', 500, 3),
+(6, 'monalisa', '2022-09-19', './images/monalisa.jpg', 500, 3);
+
+INSERT INTO Photographers (PhotographerId, Izena, Awarded)
+VALUES
+(1, 'John Smith', true),
+(2, 'Jane Doe', false),
+(3, 'Michael Johnson', true);
