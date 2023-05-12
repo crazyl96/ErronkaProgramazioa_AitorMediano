@@ -64,6 +64,7 @@ public class PictureViewer extends JFrame {
                 }
             }
         });
+        //botoia Award clikatzerakoan  eskatuko diogu nahi ditugun bisitak eta deituko dio awardUpdateri
         bAward.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -74,7 +75,7 @@ public class PictureViewer extends JFrame {
 
             }
         });
-
+        //botoa remove clikatzerakoann deituko dio ezabatu metdodoari DBkonexioan
         bRemove.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -112,6 +113,7 @@ public class PictureViewer extends JFrame {
         setLocationRelativeTo(null);
         setVisible(true);
     }
+    //emen metodoa erabikltzen dugu argazkiak kargatzeko
     private void cargarImagenes(){
         Photographer fotografo = (Photographer) fotografos.getSelectedItem();
         Date date = fecha.getDate();
