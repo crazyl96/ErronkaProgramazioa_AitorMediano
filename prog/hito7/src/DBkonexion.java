@@ -14,7 +14,7 @@ public class DBkonexion{
 
     private Map<Integer,Integer> hashMap;
 
-
+//emen metodo bat non gonexio bat egten degu
     public static Connection getConexion(){
         if(conexion == null){
             try{
@@ -26,7 +26,7 @@ public class DBkonexion{
         }
         return conexion;
     }
-
+//emen metodo hay sortzen degu, Array list bat bueltatzeko
     public static List<Photographer> cargarFotografos(){
         String sql = "SELECT * FROM Photographers";
         List<Photographer> fotografos = new ArrayList<>();
@@ -45,7 +45,7 @@ public class DBkonexion{
         }
         return fotografos;
     }
-
+//emen Array list bat bueltatzen degu eta sartzen diren datuak izan behar dira Int eta Date
     public static List<Picture> cargarImagen(int photographerId, java.util.Date date){
         String sql;
         //daten jarri vearko dugu java.sql.Date artzeko gure datubasearen formatoa
@@ -74,7 +74,7 @@ public class DBkonexion{
         }
         return argazkiak;
     }
-
+//emen metodo hau egiten duguna gure zerbitzarian Update bat non bisitak igoko dira Picture objetu bat sartzerakoan
     public static void updateVisits(Picture picture){
         String sql = "update Pictures set Visits = "+ picture.getVisitas() + "where PictureId = "+picture.getId();
         try(Statement statement = getConexion().createStatement();
@@ -84,7 +84,7 @@ public class DBkonexion{
             System.out.println("Errore bat egon da bisitak eguneratzerakoan: "+ ex);
         }
     }
-
+//emen sortzen degu hashmap bat
     public HashMap<Integer,Integer> createVisitsMap(){
         hashMap = new HashMap<>();
         String sql = "SELECT Photographe_id, sum(visits) as total_visits from pictures group by Photographe_id";
@@ -102,7 +102,7 @@ public class DBkonexion{
         }
         return (HashMap<Integer, Integer>) hashMap;
     }
-
+//emen update bat egiten degu award kolumnan
     public void awardUpdate(int visits){
       String sql = "update photographers set photographers.awarded= photographers.awarded+1 where PhotographerId= "+visits;
        try(Statement statement = getConexion().createStatement();
@@ -124,7 +124,7 @@ public class DBkonexion{
            throw new RuntimeException(ex);
        }
     }
-
+//emen metodo hay botoia remove presionatzerakoan deituko dio metodo oni borratzeko datu basean
     public void ezabatu(){
         String sql = "SELECT * FROM Pictures INNER JOIN Photographers ON Pictures.Photographe_id = Photographers.PhotographerId WHERE Pictures.visits = 0 and Photographers.awarded = 0";
 
